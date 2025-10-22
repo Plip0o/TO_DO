@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap');
+
+:root{
+    /* paleta de cores  */
+    --color1: #BFBFB8; /*letras*/
+    --color2:#A3A69C;
+    --color3:#4D5950;
+    --color4:#35403A;
+    --color5:#232625;
+}
+ 
+body {
+    display: flex;
+    padding: 50px;
+    background-image: url(img/imgFundo.png);
+    background-repeat: no-repeat;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+h1 {
+    font-family: 'BBH Sans Bartle', sans-serif;
+    text-align: center;
+    color: var(--color1);
+    text-shadow: 9px 9px 6px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    margin: auto;
+    display: flex;
+}
+
+input#taskInput {
+    text-align: center;
+    color: var(--color1);
+    padding: 1vh 15vw;
+    border: none;
+    border-radius: 010px 0px 0px 10px;
+    background-image: linear-gradient(90deg, var(--color3), var(--color4), var(--color5) 130%);
+}
+
+input#taskInput::placeholder {
+    color: var(--color1);
+}
+
+button {
+    color: var(--color1);
+    padding: 1vh 1vw;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    background-image: linear-gradient(90deg, var(--color4), var(--color5));
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    opacity: 0.85;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:active {
+    opacity: 0.7;
+    cursor: pointer;
+    transform: translatey(2px);
+    transition: 0.1s;
+}
+
+ul {
+    margin: auto;
+    padding: 20px 0px;
+    list-style: none;
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+    
+}
+
+li {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    background-image: linear-gradient(90deg, var(--color3), var(--color4));
+    margin: 3px;
+    padding: 10px 250px;
+    opacity: 0.8;
+    color: var(--color1);
+    text-align: left !important;
+    /* não conseguir alinhar o texto */
+    border-radius: 10px;
+}
+
+li:hover {
+    opacity: 1;
+    transition: 0.1s;
+    cursor: pointer;
+    padding: 10px 260px;
+}
+
+/*
+input estas com a frase sumindo
+li esta com os intens alinhados no centro 
+*/
+
