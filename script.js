@@ -17,12 +17,23 @@ function addItem() {
         
         li.dataset.id = taskid
 
-        li.innerHTML += "<span> <img src='img/delete.png'></span>";
-        li.innerHTML += "<span> <img src='img/edit.png'></span>";
-        li.innerHTML += "<span> <img src='img/visibility.png'></span>";
+// CREATE       
+        const visibility = document.createElement('img')
+        visibility.src = 'img/visibility.png';
+        visibility.id = `visibility-${taskid}`; //ainda não entendi direito como funciona esse contador
+
+        li.appendChild(visibility);
+
+
+
+        // const editTask = document.querySelector('img[src="img/edit.png"]')
+        // editTask.id = "edit";
 
         // li.onclick = () => editTask (taskid)
-
+        // console.log("oi")
+// READ
+// UPDATE
+// DELETE
         task.appendChild(li);
 
         taskInput.value = "";
