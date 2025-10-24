@@ -17,10 +17,12 @@ function addItem() {
         //adc o valor do imput dentro da li
         li.innerHTML = taskInput.value;
         
+        //cria uma var e coloca o contador dentro
         const taskid = `task-${taskIdCounter}`
         
+        //coloca a var com o contador dentro da li como um id usando o dataset
+        //que é um objeto 
         li.dataset.id = taskid
-        //(ainda não entendi direito como funciona esse contador)
 
     // criando as images que vao servir como btn
 
@@ -39,18 +41,19 @@ function addItem() {
         cancel.src = 'img/cancel.png'
         cancel.id = `cancel-${taskid}`
 
-        //cria um elemento novo, no caso uma div
+        //cria um elemento novo, no caso uma span
+        //usei um <span> ao inves de uma <div> por conta do box-inline-level
         //(agrupar as imgs pra facilitar a estilização)
-        const iconsContainer = document.createElement('div')
-        //adc uma class na div
+        const iconsContainer = document.createElement('span')
+        //adc uma class na span
         iconsContainer.classList.add('imgsIcons')
 
-        //colocando as imgs dentro da div
+        //colocando as imgs dentro da span
         iconsContainer.appendChild(visibility)
         iconsContainer.appendChild(edit)
         iconsContainer.appendChild(cancel)
 
-        //mostrando a <div class = imgsIcons>
+        //mostrando a <span class = imgsIcons>
         li.appendChild(iconsContainer)
        
         //cria o a li dentro do <ul id="task">
@@ -60,19 +63,41 @@ function addItem() {
         taskInput.value = "";
         taskInput.focus();
 
-        //faz o contador funcionar, adc +1
-        taskIdCounter ++
-
 // READ
+        visibility.addEventListener('click',function(){
+            const visibilityId = this.id;
+            const taskId = visibilityId.split ('visibility-')[1]
+            const liToRead = document.querySelector(`[data-id="${taskId}"]`)
+            
+            //cria uma div 
+            const readcontainer = document.createElement ('div')
+            //procura dentro do HTML(document) o body e cria um elemento "filho" dentro
+            document.body.appendChild(readcontainer)
+            readcontainer.id = `visibilityTask`
+            
+
+        })
 // UPDATE
 // DELETE
+        cancel.addEventListener('click',function(){
+
+            //pega o id da img 
+            const cancelId = this.id;
+            //separa o pedaço que identifica a tarefa
+            const taskId = cancelId.split('cancel-')[1]
+
+            //procura a li pelo seletor taskid
+            const liToRemove = document.querySelector(`[data-id="${taskid}"]`);
+            //remove a li
+            liToRemove.remove();
+
+        })
+
         
+        //faz o contador funcionar, adc +1
+        taskIdCounter ++
     }
 }
-
-
- // const editTask = document.querySelector('img[src="img/edit.png"]')
-        // editTask.id = "edit";
 
         // li.onclick = () => editTask (taskid)
         // console.log("oi")
