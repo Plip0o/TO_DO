@@ -21,3 +21,9 @@ function editTask(id) {
 
 o innerHTML é melhor utilizado pra coisas simples, nesse caso onde vou adc uma img e colocar função nela é melhor usar o 
 createElement para criar a img, colocar o img.src para adicionar o caminho da img, nesse caso, colocar o id com o img.id e só então colocalo na li com o li.appendChild
+
+ctrl+shift+L = seleciona todas as palavras iguais no cod, me ajudou quando eu usei delete como nome da img mas esse nome é reservado. alterei pra cancel todas as palavras usando o esse atalho
+
+criei uma div pra colocar as imgs pq n conseguia separar elas do texto sem separar uma img da outra img
+
+comecei a documentar o cod porque eu me perdi 

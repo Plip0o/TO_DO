@@ -80,22 +80,33 @@ ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100px;
+    width: 100%;
+    max-width: 600px;
+
     
 }
 
 li {
-    display: flex;
-    justify-content: space-between !important;
     width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-image: linear-gradient(90deg, var(--color3), var(--color4));
     margin: 3px;
-    padding: 10px 250px;
+    padding: 10px 15px;
     opacity: 0.8;
     color: var(--color1);
     border-radius: 10px;
-    /* não conseguir alinhar o texto */
 }
+
+div.imgsIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
 
 li:hover {
     opacity: 1;
