@@ -28,3 +28,4 @@ adicionei a função deletar no codigo
 aprendi como funcina o dataset, basicamente uma etiqueta invisivel 
 aprendi a usar o split que separou o id da img e colocou cada pedaço dentro de um obj
 criei uma div dentro do body pra fazer a visualização da task
+criei um modal e fiz alterações pontuais no css
