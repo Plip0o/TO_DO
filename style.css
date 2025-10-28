@@ -12,20 +12,20 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:baseline ;
     margin: auto;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    padding: 50px;
-    background-image: url(img/imgFundo.png);
-    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vh;
+/*  shorthand - background
+    color>image>position>repeat>[size]>attachment*/
+    background: var(--color5) url(img/imgFundo.png) center center no-repeat fixed;
+    background-size: cover ;
 }
 
 div {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 50px auto;
 }
 
 h1 {
@@ -127,7 +127,7 @@ li:hover {
     opacity: 1;
     transition: 0.1s;
     cursor: pointer;
-    padding: 10px 260px;
+    padding: 10px +40px ;
 }
 
 div#visibilityTask{
