@@ -18,11 +18,11 @@ function addItem() {
         li.innerHTML = taskInput.value;
         
         //cria uma var e coloca o contador dentro
-        const taskid = `task-${taskIdCounter}`
+        const taskId = `task-${taskIdCounter}`
         
         //coloca a var com o contador dentro da li como um id usando o dataset
         //que é um objeto 
-        li.dataset.id = taskid
+        li.dataset.id = taskId
 
     // criando as images que vao servir como btn
 
@@ -31,15 +31,15 @@ function addItem() {
         //mostra qual qual img vai ser
         visibility.src = 'img/visibility.png';
         //coloca um id na img 
-        visibility.id = `visibility-${taskid}`; 
+        visibility.id = `visibility-${taskId}`; 
         
         const edit = document.createElement('img')
         edit.src = 'img/edit.png';
-        edit.id = `edit-${taskid}` 
+        edit.id = `edit-${taskId}` 
 
         const cancel = document.createElement('img')
         cancel.src = 'img/cancel.png'
-        cancel.id = `cancel-${taskid}`
+        cancel.id = `cancel-${taskId}`
 
         //cria um elemento novo, no caso uma span
         //usei um <span> ao inves de uma <div> por conta do box-inline-level
@@ -58,25 +58,48 @@ function addItem() {
        
         //cria o a li dentro do <ul id="task">
         task.appendChild(li);
-        
+
         //coloca o valor do input como vazio novamente e coloca o cursor nele
         taskInput.value = "";
         taskInput.focus();
 
 // READ
+        
+        //diz pro html que quando eu clicar no visibility ele vai fazer isso:
         visibility.addEventListener('click',function(){
+            //pega o id do visibility e coloca dentro da var
             const visibilityId = this.id;
-            const taskId = visibilityId.split ('visibility-')[1]
-            const liToRead = document.querySelector(`[data-id="${taskId}"]`)
-            
-            //cria uma div 
-            const readcontainer = document.createElement ('div')
-            //procura dentro do HTML(document) o body e cria um elemento "filho" dentro
-            document.body.appendChild(readcontainer)
-            readcontainer.id = `visibilityTask`
-            
+            //separa a var em duas pega o contador, e coloca na var taskId
+            const taskId = visibilityId.split('visibility-')[1]
+
+            //cria a var modal e coloca um elemeto que acabamos de criar
+            const modal = document.createElement('dialog')
+            //coloca id com o contador
+            modal.id = `modal-${taskId}`
+            //cria um dialog dentro do body        
+            document.body.appendChild(modal)
+
+            //seleciona a li e coloca ela dentro da var
+            const textoLi = document.querySelector(`[data-id="${taskId}"]`);
+            //seleciona apnas o texto da li e coloca dentro de txtLi 
+            const txtLi = textoLi.textContent
+            //coloca o texto dentro do modal 
+            modal.textContent = txtLi
+
+            const close = document.createElement('img')
+            close.src = 'img/close.png'
+            close.id = `close-${taskId}`
+
+            modal.appendChild(close)
+
+            modal.showModal();
+
+            close.addEventListener('click',function(){
+                modal.close()
+            })
 
         })
+
 // UPDATE
 // DELETE
         cancel.addEventListener('click',function(){
@@ -86,8 +109,8 @@ function addItem() {
             //separa o pedaço que identifica a tarefa
             const taskId = cancelId.split('cancel-')[1]
 
-            //procura a li pelo seletor taskid
-            const liToRemove = document.querySelector(`[data-id="${taskid}"]`);
+            //procura a li pelo seletor taskId
+            const liToRemove = document.querySelector(`[data-id="${taskId}"]`);
             //remove a li
             liToRemove.remove();
 
@@ -99,5 +122,5 @@ function addItem() {
     }
 }
 
-        // li.onclick = () => editTask (taskid)
+        // li.onclick = () => editTask (taskId)
         // console.log("oi")
