@@ -87,9 +87,7 @@ ul {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    max-width: 600px;
-
-    
+    max-width: 600px;    
 }
 
 li {
@@ -139,8 +137,17 @@ div#visibilityTask{
 
 }
 
-/*
-input estas com a frase sumindo
-li esta com os intens alinhados no centro 
-*/
-
+dialog{
+    /* display: flex; */
+    /*o display flex está quebrando o funcionamento do botão close*/
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(90deg, var(--color3),var(--color4));
+    color: var(--color1);
+    margin: auto;
+    border: solid 2.5px var(--color5);
+    border-radius: 10px;
+    position: absolute;
+    top: -50%; 
+    width: 40vh;  
+}
