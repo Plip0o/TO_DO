@@ -14,6 +14,10 @@ function editTask(id) {
 }
 5. fazer a div abrir debaixo da task selecionada **check**
 6. colocar o botão pra fechar **check**
+7. colocar botao pra um novo modal ou cancelar
+8. criar um modal pra aceitar ou cancelar a auteração da task
+10. coloca o valor do input dentro da li
+
 
 o innerHTML é melhor utilizado pra coisas simples, nesse caso onde vou adc uma img e colocar função nela é melhor usar o 
 createElement para criar a img, colocar o img.src para adicionar o caminho da img, nesse caso, colocar o id com o img.id e só então colocalo na li com o li.appendChild

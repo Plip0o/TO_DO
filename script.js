@@ -121,8 +121,20 @@ function addItem() {
             
             const modalId = this.id
             modal.id = modalId
+
+            editTask = document.createElement('input')
+            //editar placeholder
+            editTask.placeholder = "ola"
+            editTask.type = "text"
+            //colocar id
+
+            modal.appendChild(editTask)
+
+            valortask = taskInput.value
             
             document.body.appendChild(modal)
+            
+            modal.showModal()
 
         })
 // DELETE TASK
