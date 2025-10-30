@@ -115,6 +115,16 @@ function addItem() {
         })
 
 // UPDATE
+        edit.addEventListener('click',function(){
+
+            const modal = document.createElement('dialog')
+            
+            const modalId = this.id
+            modal.id = modalId
+            
+            document.body.appendChild(modal)
+
+        })
 // DELETE TASK
         cancel.addEventListener('click',function(){
 
