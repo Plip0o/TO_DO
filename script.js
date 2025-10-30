@@ -64,7 +64,7 @@ function addItem() {
         taskInput.focus();
 
 // READ
-        
+    // CRIAR MODAL        
         //diz pro html que quando eu clicar no visibility ele vai fazer isso:
         visibility.addEventListener('click',function(){
             //pega o id do visibility e coloca dentro da var
@@ -94,14 +94,28 @@ function addItem() {
 
             modal.showModal();
 
+    // DELETE MODAL
             close.addEventListener('click',function(){
-                modal.close()
+                //pega o item
+                //pega o id do item
+                const closeId = this.id;
+                const cId = closeId.split(`close-`)[1]
+               
+                //seleciona o item pelo id
+                const deleteModal = document.querySelector(`#modal-${cId}`);
+               
+                //fecha o modal
+                modal.close();
+
+                //apaga o item
+                deleteModal.remove();
+             
             })
 
         })
 
 // UPDATE
-// DELETE
+// DELETE TASK
         cancel.addEventListener('click',function(){
 
             //pega o id da img 
@@ -121,6 +135,3 @@ function addItem() {
         taskIdCounter ++
     }
 }
-
-        // li.onclick = () => editTask (taskId)
-        // console.log("oi")
