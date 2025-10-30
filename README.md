@@ -12,8 +12,8 @@ function editTask(id) {
     const li = document.querySelector([data-id="${id}"]);
  deletar......
 }
-5. fazer a div abrir debaixo da task selecionada 
-6. colocar o botão pra fechar 
+5. fazer a div abrir debaixo da task selecionada **check**
+6. colocar o botão pra fechar **check**
 
 o innerHTML é melhor utilizado pra coisas simples, nesse caso onde vou adc uma img e colocar função nela é melhor usar o 
 createElement para criar a img, colocar o img.src para adicionar o caminho da img, nesse caso, colocar o id com o img.id e só então colocalo na li com o li.appendChild
