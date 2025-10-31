@@ -116,26 +116,68 @@ function addItem() {
 
 // UPDATE
         edit.addEventListener('click',function(){
-
+            //cria um dialog
             const modal = document.createElement('dialog')
             
-            const modalId = this.id
-            modal.id = modalId
-
+            //coloca um id no modal
+            const modalId = this.id.split(`task-`)[1]
+            modal.id = `modal-${modalId}`
+       
+            //cria um input 
             editTask = document.createElement('input')
+          
             //editar placeholder
-            editTask.placeholder = "ola"
+            const valortask = this.id.split(`edit-`)[1]
+            const oldTask = document.querySelector(`[data-id="${valortask}"]`);
+            const oldTaskvalue = oldTask.textContent
+            editTask.placeholder = oldTaskvalue          
+            //coloca type
             editTask.type = "text"
-            //colocar id
+            //coloca id
+            const inputId = this.id.split(`task-`)[1]
+            editTask.id = `newTask-${inputId}`
 
+            //coloca o input dentro do modal
             modal.appendChild(editTask)
 
-            valortask = taskInput.value
+            //cria os btns de sair e confirmar
+            const btnCloseEdit = document.createElement('img')
+            btnCloseEdit.src = "img/close.png"
+            const btncheck = document.createElement('img')
+            btncheck.src = "img/check.png"
             
+            //coloca id nos btns
+            const closeEditId = this.id.split(`edit-task-`)[1]
+            btnCloseEdit.id = `closeEdit-${closeEditId}`
+            
+            const btncheckId = this.id.split(`edit-task-`)[1]
+            btncheck.id = `check-${btncheckId}`
+
+            //cria um container pros btns
+            const btnscontainer = document.createElement('span')
+            modal.appendChild(btnscontainer)
+
+            //coloca os btns dentro do container
+            btnscontainer.appendChild(btncheck)
+            btnscontainer.appendChild(btnCloseEdit)
+         
+            //coloca o modal dentro do bod
             document.body.appendChild(modal)
-            
+
+            //abre o modal
             modal.showModal()
 
+            btnCloseEdit.addEventListener('click',function(){
+                //pega o id do btn
+                const btnCId = this.id.split(`closeEdit-`)[1]
+                // seleciona o modal modal
+                const removeModal = document.querySelector(`#modal-${btnCId}`);
+                
+                //apaga e remove modal
+                removeModal.close();
+                removeModal.remove();
+            })
+            //#################### criar função pro btn check#######################
         })
 // DELETE TASK
         cancel.addEventListener('click',function(){
