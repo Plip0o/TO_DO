@@ -129,7 +129,7 @@ function addItem() {
             //editar placeholder
             const valortask = this.id.split(`edit-`)[1]
             const oldTask = document.querySelector(`[data-id="${valortask}"]`);
-            const oldTaskvalue = oldTask.textContent
+            let oldTaskvalue = oldTask.textContent
             editTask.placeholder = oldTaskvalue          
             //coloca type
             editTask.type = "text"
@@ -178,6 +178,41 @@ function addItem() {
                 removeModal.remove();
             })
             //#################### criar função pro btn check#######################
+        btncheck.addEventListener('click',function(){
+              
+
+                //pega o valor do input
+                const inputcont = this.id.split('check-')[1]
+                const newTaskId = `newTask-${inputcont}`
+                const newTask = document.getElementById(newTaskId);
+                const newTaskValue = newTask.value     
+
+                if(newTaskValue ==""){
+
+                    window.alert("digite algo!")
+
+               }else{
+                
+                let oldTask = document.querySelector(`[data-id="task-${inputcont}"]`);
+                
+                
+                
+                oldTask.textContent = newTaskValue;
+                
+                
+               
+                console.log(oldTaskvalue);
+          
+                
+                
+
+
+               }
+               
+            
+              
+              
+            })  
         })
 // DELETE TASK
         cancel.addEventListener('click',function(){
