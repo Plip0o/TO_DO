@@ -194,23 +194,10 @@ function addItem() {
                }else{
                 
                 let oldTask = document.querySelector(`[data-id="task-${inputcont}"]`);
-                
-                
-                
+                                
                 oldTask.textContent = newTaskValue;
-                
-                
-               
-                console.log(oldTaskvalue);
-          
-                
-                
-
-
+                        
                }
-               
-            
-              
               
             })  
         })
