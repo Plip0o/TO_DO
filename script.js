@@ -62,7 +62,6 @@ function addItem() {
         //coloca o valor do input como vazio novamente e coloca o cursor nele
         taskInput.value = "";
         taskInput.focus();
-
 // READ
     // CRIAR MODAL        
         //diz pro html que quando eu clicar no visibility ele vai fazer isso:
