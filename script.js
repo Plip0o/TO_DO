@@ -195,6 +195,9 @@ function addItem() {
                 let oldTask = document.querySelector(`[data-id="task-${inputcont}"]`);
                                 
                 oldTask.textContent = newTaskValue;
+
+                modal.close();
+
                         
                }
               
