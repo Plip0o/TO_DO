@@ -2,60 +2,60 @@
 let taskInput = document.getElementById('taskInput');
 const btnAdd = document.getElementById('btnAdd');
 let task = document.getElementById('task');
- 
+
 //cria uma var que vai servir como um contador 
 let taskIdCounter = 0
 
 function addItem() {
-    if(taskInput.value ==""){
+    if (taskInput.value == "") {
         alert('digite uma nova tarefa');
         taskInput.focus();
     } else {
-// CREATE 
+        taskIdCounter++
+        // CREATE 
         //cria um elemento, um li
-        let li = document.createElement('li'); 
+        let li = document.createElement('li');
         //adc o valor do imput dentro da li
         li.innerHTML = taskInput.value;
-        
+
         //cria uma var e coloca o contador dentro
         const taskId = `task-${taskIdCounter}`
-        
+
         //coloca a var com o contador dentro da li como um id usando o dataset
         //que é um objeto 
         li.dataset.id = taskId
 
-    // criando as images que vao servir como btn
+        // criando as images que vao servir como btn
 
-        //cria um elemento novo, uma imagem
-        const visibility = document.createElement('img')
-        //mostra qual qual img vai ser
-        visibility.src = 'img/visibility.png';
-        //coloca um id na img 
-        visibility.id = `visibility-${taskId}`; 
-        
-        const edit = document.createElement('img')
-        edit.src = 'img/edit.png';
-        edit.id = `edit-${taskId}` 
+        const btnsImg = (taskId) => {
 
-        const cancel = document.createElement('img')
-        cancel.src = 'img/cancel.png'
-        cancel.id = `cancel-${taskId}`
+            const visibility = document.createElement('img');
+            visibility.src = 'img/visibility.png';
+            visibility.id = `visibility-${taskId}`;
+            visibility.addEventListener('click', visibilityfunction);
+            
+            const edit = document.createElement('img');
+            edit.src = 'img/edit.png';
+            edit.id = `edit-${taskId}`;
+            edit.addEventListener('click', editfunction);
+            
+            const cancel = document.createElement('img');
+            cancel.src = 'img/cancel.png';
+            cancel.id = `cancel-${taskId}`;
+            cancel.addEventListener('click',cancelfunction);
 
-        //cria um elemento novo, no caso uma span
-        //usei um <span> ao inves de uma <div> por conta do box-inline-level
-        //(agrupar as imgs pra facilitar a estilização)
-        const iconsContainer = document.createElement('span')
-        //adc uma class na span
-        iconsContainer.classList.add('imgsIcons')
+            const iconsContainer = document.createElement('span');
+            //adc uma class na span
+            iconsContainer.classList.add('imgsIcons');
 
-        //colocando as imgs dentro da span
-        iconsContainer.appendChild(visibility)
-        iconsContainer.appendChild(edit)
-        iconsContainer.appendChild(cancel)
+            iconsContainer.append(visibility, edit, cancel)
 
-        //mostrando a <span class = imgsIcons>
-        li.appendChild(iconsContainer)
-       
+            return iconsContainer;
+            
+        }
+
+        li.appendChild(btnsImg (taskId));
+
         //cria o a li dentro do <ul id="task">
         task.appendChild(li);
 
@@ -65,7 +65,7 @@ function addItem() {
 // READ
     // CRIAR MODAL        
         //diz pro html que quando eu clicar no visibility ele vai fazer isso:
-        visibility.addEventListener('click',function(){
+        function visibilityfunction() {
             //pega o id do visibility e coloca dentro da var
             const visibilityId = this.id;
             //separa a var em duas pega o contador, e coloca na var taskId
@@ -111,7 +111,7 @@ function addItem() {
              
             })
 
-        })
+        }
 
 // UPDATE
         edit.addEventListener('click',function(){
@@ -217,10 +217,7 @@ function addItem() {
             liToRemove.remove();
 
         })
-
-        
-        //faz o contador funcionar, adc +1
-        taskIdCounter ++
+     
     }
 }
 
