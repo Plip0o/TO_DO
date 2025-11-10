@@ -70,14 +70,19 @@ function addItem() {
             const textoLi = document.querySelector(`[data-id="${taskId}"]`);
             
             const txtLi = textoLi.textContent
-     
-            modal.textContent = txtLi
+            
+            // modal.textContent = txtLi
 
             const close = document.createElement('img')
             close.src = 'img/close.png'
+            close.classList = "closebtn"
             close.id = `close-${taskId}`
 
-            modal.appendChild(close)
+            const containerReadModal = document.createElement('div')
+            containerReadModal.classList = "containerReadModal"
+            containerReadModal.append(txtLi, close)
+
+            modal.appendChild(containerReadModal)
 
             modal.showModal();
 
@@ -89,8 +94,6 @@ function addItem() {
 
    
                 modal.close();
-
-
                 deleteModal.remove();
 
             })
@@ -99,6 +102,8 @@ function addItem() {
         function editfunction() {
     
             const modal = document.createElement('dialog')
+            const containerModal = document.createElement('div')
+            containerModal.classList = "containerModal"
 
             const modalId = this.id.split(`task-`)[1]
             modal.id = `modal-${modalId}`
@@ -115,25 +120,25 @@ function addItem() {
             const inputId = this.id.split(`task-`)[1]
             editTask.id = `newTask-${inputId}`
 
-            modal.appendChild(editTask)
-
+            
             const btnCloseEdit = document.createElement('img')
             btnCloseEdit.src = "img/close.png"
             const btncheck = document.createElement('img')
             btncheck.src = "img/check.png"
-
+            
             const closeEditId = this.id.split(`edit-task-`)[1]
             btnCloseEdit.id = `closeEdit-${closeEditId}`
-
+            
             const btncheckId = this.id.split(`edit-task-`)[1]
             btncheck.id = `check-${btncheckId}`
-
+            
             const btnscontainer = document.createElement('span')
-            modal.appendChild(btnscontainer)
-
-            btnscontainer.appendChild(btncheck)
-            btnscontainer.appendChild(btnCloseEdit)
-
+            
+            btnscontainer.append(btncheck, btnCloseEdit)
+            
+            containerModal.append(editTask, btnscontainer)
+            
+            modal.appendChild(containerModal)
             document.body.appendChild(modal)
 
             modal.showModal()
