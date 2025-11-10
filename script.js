@@ -166,6 +166,7 @@ function addItem() {
                     oldTask.appendChild(btnsImg (taskId));
 
                     modal.close();
+                    modal.remove();
                 }
 
             })
