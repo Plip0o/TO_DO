@@ -13,8 +13,14 @@ function addItem() {
 // CREATE 
       
         let li = document.createElement('li');
+        let containercheckboxandtxt = document.createElement('div');
+        containercheckboxandtxt.classList = "containerLi"
+        
+        let checkbox = document.createElement ('input');
+        checkbox.classList = "checkbox"
+        checkbox.type = "checkbox"
 
-        li.innerHTML = taskInput.value;
+        containercheckboxandtxt.append(checkbox, taskInput.value);
 
         const taskId = `task-${taskIdCounter}`
 
@@ -47,7 +53,7 @@ function addItem() {
             
         }
 
-        li.appendChild(btnsImg (taskId));
+        li.append(containercheckboxandtxt, btnsImg (taskId));
 
         task.appendChild(li);
 

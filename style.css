@@ -151,3 +151,12 @@ dialog{
     top: -50%; 
     width: 40vh;  
 }
+
+.containerLi{
+    margin: 0%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
