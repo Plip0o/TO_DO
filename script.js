@@ -16,14 +16,17 @@ function addItem() {
         let containercheckboxandtxt = document.createElement('div');
         containercheckboxandtxt.classList = "containerLi"
         
-        let checkbox = () => { 
+        let checkbox = (txt) => { 
             let input = document.createElement ('input');
             input.classList.add('checkbox');
             input.type = 'checkbox';
-            return input;
+
+            const container = document.createElement('span')
+            container.append(input, txt)
+            return container;
         }
 
-        containercheckboxandtxt.append(checkbox(), taskInput.value);
+        containercheckboxandtxt.append(checkbox(taskInput.value));
 
         const taskId = `task-${taskIdCounter}`
 
