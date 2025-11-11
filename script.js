@@ -179,9 +179,10 @@ function addItem() {
 
                 } else {
                     let oldTask = document.querySelector(`[data-id="task-${inputcont}"]`);
-                    
-                    oldTask.textContent = (newTaskValue);
-                    oldTask.appendChild(btnsImg (taskId));
+                    oldTask.innerHTML = "";
+                    let containercheckboxandtxt = checkbox(newTaskValue);
+                   
+                    oldTask.append(containercheckboxandtxt, btnsImg (taskId));
 
                     modal.close();
                     modal.remove();
