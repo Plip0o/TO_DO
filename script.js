@@ -207,6 +207,4 @@ function addItem() {
     }
 }
 
-// ta quebrado, na hora de atualizar a li, ela vai sem o checkbox
-// Codigo orientado a gambiarra, em um futuro eu refaço do 0, pra hoje eu ja aprendi muita coisa 
-// e sei bem oque eu mudaria 
+// Codigo orientado a gambiarra, em um futuro eu refaço do 0, pra hoje eu ja aprendi muita coisa
